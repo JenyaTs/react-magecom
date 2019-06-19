@@ -4,10 +4,10 @@ function CategoryInput(props) {
 
 
     return (
-        <div>
+        <form onSubmit={(e) => {e.preventDefault()}}>
             <input type="text"/>
             <button onClick={() => {props.setCat(false)}}>Add category</button>
-        </div>
+        </form>
     );
 }
 

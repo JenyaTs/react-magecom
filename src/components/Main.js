@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import TodoList from "./TodoList";
+import CategoriesList from "./CategoriesList";
 import CategoryInput from "./CategoryInput";
 
 function Main(props) {
-    const [category, setCategory] = useState(false);
+    const [parentCategoryInput, setParentCategoryInput] = useState(false);
 
-    function CreateCatButton(props) {
-        if (category) {
+    function CreateCatButton() {
+        if (parentCategoryInput) {
             return (
-                <CategoryInput setCat={setCategory}/>
+                <CategoryInput setCat={setParentCategoryInput}/>
             )
         }
 
         return (
-            <button onClick={() => {setCategory(true)}}>
+            <button onClick={() => {setParentCategoryInput(true)}}>
                 New category
             </button>
         )
@@ -23,7 +23,7 @@ function Main(props) {
         <main>
             <h2>Categories</h2>
             <CreateCatButton />
-            <TodoList />
+            <CategoriesList list={props.categories}/>
         </main>
     );
 }
