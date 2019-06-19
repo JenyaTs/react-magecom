@@ -1,28 +1,19 @@
 import React, { useState } from 'react';
 import CategoriesList from "./CategoriesList";
-import CategoryInput from "./CategoryInput";
+import CreateCatButton from "./CreateCategoryButton";
 
 function Main(props) {
     const [parentCategoryInput, setParentCategoryInput] = useState(false);
 
-    function CreateCatButton() {
-        if (parentCategoryInput) {
-            return (
-                <CategoryInput setCat={setParentCategoryInput}/>
-            )
-        }
-
-        return (
-            <button onClick={() => {setParentCategoryInput(true)}}>
-                New category
-            </button>
-        )
-    }
-
     return (
         <main>
             <h2>Categories</h2>
-            <CreateCatButton />
+            <CreateCatButton
+                category={parentCategoryInput}
+                setCategory={setParentCategoryInput}
+                categoriesList={props.categories}
+                addNewParentCategory={props.changeCategories}
+            />
             <CategoriesList list={props.categories}/>
         </main>
     );

@@ -11,7 +11,7 @@ function parseCategories(categories) {
 
         return (
             <li key={ element.id }>
-                { element.name }
+                <p>{ element.name } <button>+</button></p>
                 { subMenu }
             </li>
         );
