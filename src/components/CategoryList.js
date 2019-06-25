@@ -1,9 +1,11 @@
 import React from 'react';
-import RenderList from './RenderList';
+import parseCategories from "../helpers/parseCategoriesArray";
 
 function CategoryList(props) {
     return (
-        <RenderList categories={props.categories} updateCats={props.updateCats} state={props.state} setParentState={props.setParentState}/>
+        <div>
+            {parseCategories(props.categories, props.updateCats, props.state, props.setParentState, props.categories)}
+        </div>
     )
 }
 

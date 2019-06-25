@@ -8,23 +8,23 @@ import Sidebar from './components/Sidebar';
 function App() {
     const [toDoList, setToDolist] = useState([]);
     const [catList, setCatList] = useState([
-        {
-            id: 1,
-            name: 'react',
-            tasks: [],
-            subCategory: [{
-                id: 1.1,
-                name: 'hooks',
-                tasks: [],
-                subCategory: []
-            }]
-        },
-        {
-            id: 2,
-            name: 'redux',
-            tasks: [],
-            subCategory: []
-        }
+        // {
+        //     id: 1,
+        //     name: 'react',
+        //     tasks: [],
+        //     subCategory: [{
+        //         id: 1.1,
+        //         name: 'hooks',
+        //         tasks: [],
+        //         subCategory: []
+        //     }]
+        // },
+        // {
+        //     id: 2,
+        //     name: 'redux',
+        //     tasks: [],
+        //     subCategory: []
+        // }
     ]);
 
     return (

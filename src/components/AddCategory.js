@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import setNewCategoryObject from "../helpers/setNewCategoryObject";
 
 function AddCategory(props) {
     const [state, setState] = useState(false);
@@ -15,41 +16,25 @@ function AddCategory(props) {
                 />
                 <button onClick={() => {
                     if(value !== '') {
-                        let newCat = {
-                            id: Math.round(Math.random() * 10000),
-                            name: value,
-                            tasks: [],
-                            subCategory: []
-                        };
+                        let catList = props.categories;
 
                         if (!props.id) {
-                            let catList = props.categories;
+                            let id = catList.length + 1
+                            let newCat = setNewCategoryObject(id, value);
+                        
                             catList.push(newCat);
                             props.updateCats(catList);
                             setState(false);
-
-
-                            if (props.state === false) {
-                                props.setParentState(true);
-                            }
-
-                            if (props.state === true) {
-                                props.setParentState(false);
-                            }
+                            props.setParentState(!props.state);
                         }
 
                         if (props.id) {
-                            let catList = props.categories;
-                            let newCat = {
-                                id: Math.round(Math.random() * 10000),
-                                name: value,
-                                tasks: [],
-                                subCategory: []
-                            };
+                            let id = `${props.element.id}.${props.element.subCategory.length + 1}`;
+                            let newCat = setNewCategoryObject(id, value);
 
                             function parse(array) {
                                 array.forEach((element) => {
-                                    if(element.id === props.id) {
+                                    if (element.id === props.id) {
                                         element.subCategory.push(newCat);
                                     }
 
@@ -63,16 +48,8 @@ function AddCategory(props) {
 
                             props.updateCats(catList);
                             setState(false);
-
-                            if (props.state === false) {
-                                props.setParentState(true);
-                            }
-
-                            if (props.state === true) {
-                                props.setParentState(false);
-                            }
+                            props.setParentState(!props.state);
                         }
-
                     }
                 }}>Add category</button>
             </span>
