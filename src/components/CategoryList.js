@@ -1,10 +1,10 @@
 import React from 'react';
-import parseCategories from "../helpers/parseCategoriesArray";
+import ParseCategories from "./ParseCategoriesArray";
 
 function CategoryList(props) {
     return (
         <div>
-            {parseCategories(props.categories, props.updateCats, props.state, props.setParentState, props.categories)}
+            {ParseCategories(props.categories, props.updateCats, props.state, props.setParentState, props.categories)}
         </div>
     )
 }

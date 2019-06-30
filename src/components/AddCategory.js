@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import setNewCategoryObject from "../helpers/setNewCategoryObject";
+import addSubCategory from "../helpers/addSubCategory";
 
 function AddCategory(props) {
     const [state, setState] = useState(false);
@@ -16,13 +17,14 @@ function AddCategory(props) {
                 />
                 <button onClick={() => {
                     if(value !== '') {
-                        let catList = props.categories;
-
+                        let catList = props.categories.slice();
+                        
                         if (!props.id) {
                             let id = catList.length + 1
                             let newCat = setNewCategoryObject(id, value);
                         
                             catList.push(newCat);
+                            
                             props.updateCats(catList);
                             setState(false);
                             props.setParentState(!props.state);
@@ -32,19 +34,7 @@ function AddCategory(props) {
                             let id = `${props.element.id}.${props.element.subCategory.length + 1}`;
                             let newCat = setNewCategoryObject(id, value);
 
-                            function parse(array) {
-                                array.forEach((element) => {
-                                    if (element.id === props.id) {
-                                        element.subCategory.push(newCat);
-                                    }
-
-                                    if (element.subCategory.length  > 0) {
-                                        parse(element.subCategory)
-                                    }
-                                });
-                            }
-
-                            parse(catList);
+                            addSubCategory(catList, newCat, props);
 
                             props.updateCats(catList);
                             setState(false);

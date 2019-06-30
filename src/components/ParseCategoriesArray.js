@@ -1,13 +1,13 @@
 import React from "react";
-import AddCategory from "../components/AddCategory";
+import AddCategory from "./AddCategory";
 
-function parseCategories(categories, updateCategories, state, setParentState, list) {
+function ParseCategories(categories, updateCategories, state, setParentState, list) {
     const categoriesArr = categories.map((element) => {
 
         let subMenu;
 
         if (element.subCategory.length  > 0) {
-            subMenu = parseCategories(element.subCategory, updateCategories, state, setParentState, list)
+            subMenu = ParseCategories(element.subCategory, updateCategories, state, setParentState, list)
         }
 
         return (
@@ -37,4 +37,4 @@ function parseCategories(categories, updateCategories, state, setParentState, li
     )
 }
 
-export default parseCategories;
+export default ParseCategories;

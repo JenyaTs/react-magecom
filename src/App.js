@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import './App.css';
-// import Header from './components/Header';
+import CategoryAdder from './components/CategoryAdder';
+import AddCategory from "./components/AddCategory";
+import CategoryList from "./components/CategoryList";
 // import Footer from './components/Footer';
 // import Main from './components/Main';
-import Sidebar from './components/Sidebar';
 
 function App() {
-    const [toDoList, setToDolist] = useState([]);
+    // const [toDoList, setToDolist] = useState([]);
     const [catList, setCatList] = useState([
         // {
         //     id: 1,
@@ -29,9 +30,16 @@ function App() {
 
     return (
         <div className="app">
-            {/*<Header />*/}
+            <header>
+                <span>New category</span>
+                <CategoryAdder categories={catList} updateCats={setCatList} title="New category" component={AddCategory}/>
+            </header>
+            
             {/*<Main categories={catList} changeCategories={setCatList}/>*/}
-            <Sidebar categories={catList} updateCats={setCatList}/>
+            <aside>
+                <CategoryAdder categories={catList} updateCats={setCatList} component={CategoryList}/>
+            </aside>
+            
             {/*<Footer />*/}
         </div>
     );
