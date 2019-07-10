@@ -1,18 +1,27 @@
 import React from "react";
 import AddCategory from "./AddCategory";
+import ListItem from "./ListItem";
 
-function ParseCategories(categories, updateCategories, state, setParentState, list) {
+function ParseCategories(categories, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState) {
     const categoriesArr = categories.map((element) => {
 
         let subMenu;
 
         if (element.subCategory.length  > 0) {
-            subMenu = ParseCategories(element.subCategory, updateCategories, state, setParentState, list)
+            subMenu = ParseCategories(element.subCategory, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState)
         }
 
         return (
             <li key={ element.id }>
-                <p>{ element.name }
+                    <ListItem 
+                        element={element} 
+                        todos={todos} 
+                        updateTodos={updateTodos}
+                        state={state}
+                        setParentState={setParentState}
+                        setToDoState={setToDoState}
+                    />
+                    
                     <AddCategory
                         id={element.id}
                         element={element}
@@ -23,8 +32,7 @@ function ParseCategories(categories, updateCategories, state, setParentState, li
                     >
                         +
                     </AddCategory>
-                </p>
-                { subMenu }
+                    { subMenu }
             </li>
         );
 

@@ -10,6 +10,9 @@ function CategoryAdder(props) {
             categories={props.categories}
             setParentState={setState}     
             updateCats={props.updateCats}
+            todos={props.todos} 
+            updateTodos={props.updateTodos}
+            setToDoState={props.setToDoState}
         />
     )
 }

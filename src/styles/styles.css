@@ -1,0 +1,13 @@
+.maincontent {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main,
+.sidebar {
+    width: 50%;
+}
+
+.main {
+    order: 1;
+}
