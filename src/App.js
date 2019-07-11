@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import CategoryAdder from './components/CategoryAdder';
-import AddCategory from "./components/AddCategory";
-import CategoryList from "./components/CategoryList";
+import SubCategory from "./components/SubCategory";
+import CategoryListWrapper from "./components/CategoryListWrapper";
 import Main from './components/Main';
 
 import './styles/styles.css'
@@ -20,7 +20,7 @@ function App() {
                     updateTodos={setToDolist} 
                     categories={catList} 
                     updateCats={setCatList} 
-                    component={AddCategory}
+                    component={SubCategory}
                     />
             </header>
             <div className="maincontent">
@@ -41,7 +41,7 @@ function App() {
                         updateTodos={setToDolist} 
                         categories={catList} 
                         updateCats={setCatList} 
-                        component={CategoryList}
+                        component={CategoryListWrapper}
                         setToDoState={setToDoState}
                         />
                 </aside>

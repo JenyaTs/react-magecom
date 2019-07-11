@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import setNewCategoryObject from "../helpers/setNewCategoryObject";
 import addSubCategory from "../helpers/addSubCategory";
 
-function AddCategory(props) {
+function SubCategory(props) {
     const [state, setState] = useState(false);
     const [value, setValue] = useState('');
 
@@ -55,4 +55,4 @@ function AddCategory(props) {
     )
 }
 
-export default AddCategory;
+export default SubCategory;
