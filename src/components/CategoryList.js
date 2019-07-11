@@ -1,10 +1,11 @@
 import React from 'react';
 import ParseCategories from "./ParseCategoriesArray";
+import '../styles/styles.css'
 
 
 function CategoryList(props) {
     return (
-        <div>
+        <div className="pointer">
             {
                 ParseCategories(
                     props.categories, 

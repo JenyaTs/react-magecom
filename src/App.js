@@ -13,9 +13,9 @@ function App() {
     
     return (
         <div className="wrapper">
-            <header className="header">
+            <header className="header title">
                 <span>New category</span>
-                <CategoryAdder 
+                <CategoryAdder
                     todos={toDoList} 
                     updateTodos={setToDolist} 
                     categories={catList} 
@@ -25,6 +25,7 @@ function App() {
             </header>
             <div className="maincontent">
                 <main className="main">
+                    <div className="header">Main content</div>
                     <Main 
                         todos={toDoList} 
                         updateTodos={setToDolist}
@@ -34,6 +35,7 @@ function App() {
                     />
                 </main>
                 <aside className="sidebar">
+                    <div className="header">Sidebar</div>
                     <CategoryAdder 
                         todos={toDoList} 
                         updateTodos={setToDolist} 

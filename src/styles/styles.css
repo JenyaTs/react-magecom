@@ -3,6 +3,14 @@
     flex-wrap: wrap;
 }
 
+.header {
+    padding: 20px;
+}
+
+.title {
+    display: block;
+}
+
 .main,
 .sidebar {
     width: 50%;
@@ -10,4 +18,8 @@
 
 .main {
     order: 1;
+}
+
+.pointer {
+    cursor: pointer;
 }

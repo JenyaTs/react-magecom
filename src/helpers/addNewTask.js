@@ -1,29 +1,26 @@
-function addNewTask(arr, id, task) {
-    let parsedId = id.split('.');  
+function newTaskAdder(arr, id, task) {
+    let parsedId = id.split('.');
     let idElem = parsedId[0];
     let count = 0;
 
-    // arr.map(function(el, idx) {
-    //     if (`${el.id}` === idElem) {
-    //         debugger;
-    //         idElem = `${idElem}.${parsedId[count + 1]}`;
-    //         count++;
-    //         console.log(el);
-    //         addNewTask(el.subCategory, id, task);
-    //     }
-    // })
-    
-    arr.map(function(el) {
-        if (el.id == id) {
-            el.tasks.push(task);
-        }     
+    function taskAdderPusher(arr, task) {
+        for (let i = 0; i < arr.length; i++) {
 
-        if (el.subCategory) {
-            addNewTask(el.subCategory, id, task);
+            if (`${arr[i].id}` === idElem && parsedId.length - 1 > count) {
+                idElem = `${idElem}.${parsedId[count + 1]}`;
+                count++;
+                taskAdderPusher(arr[i].subCategory, task);
+            }
+
+
+            if (`${arr[i].id}` === idElem && parsedId.length - 1 === count) {
+                arr[i].tasks.push(task);
+                break;
+            }
         }
-        
-        return arr;
-    })
+    }
+
+    taskAdderPusher(arr, task);
 }
 
-export default addNewTask;
+export default newTaskAdder;

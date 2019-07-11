@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import addNewTask from '../helpers/addNewTask';
+import newTaskAdder from '../helpers/addNewTask';
 
 function TaskAdder(props) {
     const [value, setValue] = useState(''); 
@@ -9,23 +9,26 @@ function TaskAdder(props) {
         id = props.todos.id;
     
     return (
-        <form onSubmit={e => e.preventDefault()}>
-            <input
-                value={value}
-                onChange={(e) => {
-                    setValue(e.target.value);
-                }}
-            />            
-            <button onClick={() => {
-                if (value) {
-                    addNewTask(categories, id, value);                  
-                    props.setParentState(!props.parentState);
-                    setValue('');
-                }
-            }}>
-                Add Task
-            </button>
-        </form>
+        <React.Fragment>
+            <p>Add new task</p>
+            <form onSubmit={e => e.preventDefault()}>
+                <input
+                    value={value}
+                    onChange={(e) => {
+                        setValue(e.target.value);
+                    }}
+                />
+                <button onClick={() => {
+                    if (value) {
+                        newTaskAdder(categories, id, value);
+                        props.setParentState(!props.parentState);
+                        setValue('');
+                    }
+                }}>
+                    Add
+                </button>
+            </form>
+        </React.Fragment>
         
     )
 }
