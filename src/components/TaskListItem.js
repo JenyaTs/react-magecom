@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ListItem(props) {
+function TaskListItem(props) {
     const {id, name, tasks, subCategory} = props.element; 
 
     const obj = {
@@ -19,4 +19,4 @@ function ListItem(props) {
     )
 }
 
-export default ListItem;
+export default TaskListItem;

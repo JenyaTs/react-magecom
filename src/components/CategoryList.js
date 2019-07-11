@@ -1,6 +1,6 @@
 import React from "react";
 import SubCategory from "./SubCategory";
-import ListItem from "./ListItem";
+import TaskListItem from "./TaskListItem";
 
 function ParseCategories(categories, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState) {
     const categoriesArr = categories.map((element) => {
@@ -13,7 +13,7 @@ function ParseCategories(categories, updateCategories, state, setParentState, li
 
         return (
             <li key={ element.id }>
-                    <ListItem 
+                    <TaskListItem
                         element={element} 
                         todos={todos} 
                         updateTodos={updateTodos}
