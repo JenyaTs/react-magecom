@@ -1,6 +1,7 @@
 import React from "react";
 import SubCategory from "./SubCategory";
-import TaskListItem from "./TaskListItem";
+import CatListItem from "./CatListItem";
+import { Link } from 'react-router-dom'
 
 function ParseCategories(categories, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState) {
     const categoriesArr = categories.map((element) => {
@@ -13,26 +14,27 @@ function ParseCategories(categories, updateCategories, state, setParentState, li
 
         return (
             <li key={ element.id }>
-                    <TaskListItem
-                        element={element} 
-                        todos={todos} 
+                <Link to={`${element.id}`}>
+                    <CatListItem
+                        element={element}
+                        todos={todos}
                         updateTodos={updateTodos}
                         state={state}
                         setParentState={setParentState}
                         setToDoState={setToDoState}
                     />
-                    
-                    <SubCategory
-                        id={element.id}
-                        element={element}
-                        state={state}
-                        setParentState={setParentState}
-                        categories={list}
-                        updateCats={updateCategories}
-                    >
-                        +
-                    </SubCategory>
-                    { subMenu }
+                </Link>
+                <SubCategory
+                    id={element.id}
+                    element={element}
+                    state={state}
+                    setParentState={setParentState}
+                    categories={list}
+                    updateCats={updateCategories}
+                >
+                    +
+                </SubCategory>
+                { subMenu }
             </li>
         );
 

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import CategoryAdder from './components/CategoryAdder';
 import SubCategory from "./components/SubCategory";
-import CategoryListWrapper from "./components/CategoryListWrapper";
+import OpenSidebar from "./components/OpenSidebar";
+import Sidebar from "./components/Sidebar";
 import Main from './components/Main';
 
 import './styles/styles.css'
@@ -9,6 +10,7 @@ import './styles/styles.css'
 function App() {
     const [toDoList, setToDolist] = useState({});
     const [toDoState, setToDoState] = useState(false);
+    const [sidebarState, setSidebarState] = useState(false);
     const [catList, setCatList] = useState([]);
     
     return (
@@ -22,6 +24,7 @@ function App() {
                     updateCats={setCatList} 
                     component={SubCategory}
                     />
+                    <OpenSidebar state={sidebarState} setState={setSidebarState}/>
             </header>
             <div className="maincontent">
                 <main className="main">
@@ -34,17 +37,15 @@ function App() {
                         toDoState={toDoState}
                     />
                 </main>
-                <aside className="sidebar">
-                    <div className="header">Sidebar</div>
-                    <CategoryAdder 
-                        todos={toDoList} 
-                        updateTodos={setToDolist} 
-                        categories={catList} 
-                        updateCats={setCatList} 
-                        component={CategoryListWrapper}
-                        setToDoState={setToDoState}
-                        />
-                </aside>
+                <Sidebar
+                    className="sidebar"
+                    todos={toDoList}
+                    updateTodos={setToDolist}
+                    categories={catList}
+                    updateCats={setCatList}
+                    setToDoState={setToDoState}
+                    sidebarState={sidebarState}
+                />
             </div>
         </div>
     );

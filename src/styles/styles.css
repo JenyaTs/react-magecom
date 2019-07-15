@@ -7,13 +7,20 @@
     padding: 20px;
 }
 
+.header .delete {
+    display: none;
+}
+
 .title {
     display: block;
 }
 
-.main,
 .sidebar {
-    width: 50%;
+    width: 70%;
+}
+
+.main {
+    width: 30%;
 }
 
 .main {
