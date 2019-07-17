@@ -11,7 +11,7 @@ function CatListItem(props) {
     return (
         <span onClick={() => {
             props.updateTodos(obj);
-            props.setParentState(!props.state)
+            props.setParentState(!props.state);
             props.setToDoState(true)
         }}>
             {name}

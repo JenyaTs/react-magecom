@@ -13,6 +13,7 @@ function CategoryAdder(props) {
             todos={props.todos} 
             updateTodos={props.updateTodos}
             setToDoState={props.setToDoState}
+            match={props.match}
         />
     )
 }

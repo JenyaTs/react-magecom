@@ -1,27 +1,40 @@
 import React, {useState} from 'react';
-import TaskAdder from "./TaskAdder";
-import TaskList from "./TaskList";
+import MainContent from "./MainContent";
+import { Route } from 'react-router-dom';
+import TaskDescription from "./TaskDescription";
 
 function Main(props) {
     const [state, setState] = useState(false);
+    const {todos, updateTodos, categories, updateCats, toDoState} = props;
 
-    if (props.toDoState) {
-        return (
-            <React.Fragment>
-                <TaskAdder 
-                    todos={props.todos} 
-                    updateTodos={props.updateTodos}
-                    categories={props.categories} 
-                    updateCats={props.updateCats} 
+    return (
+        <div>
+            <Route exact path={`/categories/${props.todos.id}`} render={(props) =>
+                <MainContent
+                    {...props}
+                    todos={todos}
+                    updateTodos={updateTodos}
+                    categories={categories}
+                    updateCats={updateCats}
                     parentState={state}
                     setParentState={setState}
-                />
-                <TaskList todos={props.todos.todos}/>
-            </React.Fragment>
-        )
-    }
+                    toDoState={toDoState}
+                />}
+            />
+            <Route path={`/categories/${props.todos.id}/task`} render={(props) =>
+                <TaskDescription
+                    {...props}
+                    todos={todos}
+                    updateTodos={updateTodos}
+                    categories={categories}
+                    updateCats={updateCats}
+                    parentState={state}
+                    setParentState={setState}
+                    toDoState={toDoState}
+                />}/>
+        </div>
 
-    return null;
+    );
 }
 
 export default Main;

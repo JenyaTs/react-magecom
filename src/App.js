@@ -4,13 +4,13 @@ import SubCategory from "./components/SubCategory";
 import OpenSidebar from "./components/OpenSidebar";
 import Sidebar from "./components/Sidebar";
 import Main from './components/Main';
+import { Route } from 'react-router-dom';
 
 import './styles/styles.css'
 
 function App() {
     const [toDoList, setToDolist] = useState({});
     const [toDoState, setToDoState] = useState(false);
-    const [sidebarState, setSidebarState] = useState(false);
     const [catList, setCatList] = useState([]);
     
     return (
@@ -23,28 +23,33 @@ function App() {
                     categories={catList} 
                     updateCats={setCatList} 
                     component={SubCategory}
-                    />
-                    <OpenSidebar state={sidebarState} setState={setSidebarState}/>
+                />
+                <OpenSidebar />
             </header>
+
             <div className="maincontent">
                 <main className="main">
                     <div className="header">Main content</div>
-                    <Main 
-                        todos={toDoList} 
+                    <Main
+                        todos={toDoList}
                         updateTodos={setToDolist}
-                        categories={catList} 
-                        updateCats={setCatList} 
+                        categories={catList}
+                        updateCats={setCatList}
                         toDoState={toDoState}
                     />
                 </main>
-                <Sidebar
-                    className="sidebar"
-                    todos={toDoList}
-                    updateTodos={setToDolist}
-                    categories={catList}
-                    updateCats={setCatList}
-                    setToDoState={setToDoState}
-                    sidebarState={sidebarState}
+                <Route
+                    path='/categories'
+                    render={(props) =>
+                        <Sidebar
+                            {...props}
+                            className="sidebar"
+                            todos={toDoList}
+                            updateTodos={setToDolist}
+                            categories={catList}
+                            updateCats={setCatList}
+                            setToDoState={setToDoState}
+                        />}
                 />
             </div>
         </div>

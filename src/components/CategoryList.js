@@ -1,20 +1,20 @@
 import React from "react";
 import SubCategory from "./SubCategory";
 import CatListItem from "./CatListItem";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-function ParseCategories(categories, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState) {
+function ParseCategories(categories, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState, match) {
     const categoriesArr = categories.map((element) => {
 
         let subMenu;
 
         if (element.subCategory.length  > 0) {
-            subMenu = ParseCategories(element.subCategory, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState)
+            subMenu = ParseCategories(element.subCategory, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState, match)
         }
 
         return (
             <li key={ element.id }>
-                <Link to={`${element.id}`}>
+                <Link to={`${match.url}/${element.id}`}>
                     <CatListItem
                         element={element}
                         todos={todos}

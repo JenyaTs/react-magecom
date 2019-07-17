@@ -1,24 +1,54 @@
-import React, { useState } from 'react';
+import React  from 'react';
+import { Link, Switch, Route } from 'react-router-dom'
 
-function OpenSidebar(props) {
-    const [title, setTitle] = useState('Open sidebar');
+function OpenSidebarLink() {
+        return (
+            <div>
+                <br/>
+                <Link to='/categories'>
+                    <button onClick={() => {
+                    }}>
+                        Open sidebar
+                    </button>
+                </Link>
+            </div>
+        )
+}
 
+function CloseSidebarLink() {
     return (
         <div>
             <br/>
-            <button onClick={() => {
-                props.setState(!props.state);
-                 if (props.state) {
-                     setTitle('Open Sidebar');
-                 }
-
-                 if (!props.state) {
-                     setTitle('Close sidebar');
-                 }
-            }}>
-                {title}
-            </button>
+            <Link to='/'>
+                <button onClick={() => {
+                }}>
+                    Close sidebar
+                </button>
+            </Link>
         </div>
+    )
+}
+
+function OpenSidebar() {
+    return (
+        <Switch>
+            <Route
+                exact path="/"
+                render={(props) =>
+                    <OpenSidebarLink
+                        {...props}
+                    />
+                }
+            />
+            <Route
+                path="/categories"
+                render={(props) =>
+                    <CloseSidebarLink
+                        {...props}
+                    />
+                }
+            />
+        </Switch>
     )
 }
 
