@@ -24,6 +24,7 @@ export default class TaskDescription extends React.Component {
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleStartDateChange = this.handleStartDateChange.bind(this);
         this.handleEndDateChange = this.handleEndDateChange.bind(this);
+        this.checkComplete = this.checkComplete.bind(this);
     }
 
     handleTitleChange(event) {
@@ -40,6 +41,13 @@ export default class TaskDescription extends React.Component {
 
     handleEndDateChange(date) {
         this.setState({endDate: date});
+    }
+
+    checkComplete() {
+        if (this.state.dod) {
+            return 'Uncomplete'
+        }
+        return 'Complete'
     }
 
     render() {
@@ -70,16 +78,16 @@ export default class TaskDescription extends React.Component {
                             />
                         </div>
                         <div className="dod">
-                            <strong>Task DoD:</strong>  {this.state.isDone}
+                            <strong>SMART</strong>  {this.state.isDone}
                         </div>
                         <div className="is-complete">
                             <strong>Is task completed:</strong>  {this.state.dod.toString()}
                             <Button onClick={() => {
                                 this.setState(() => ({
-                                    dod: true
+                                    dod: !this.state.dod
                                 }));
                             }}>
-                                Complete
+                                {this.checkComplete()}
                             </Button>
                         </div>
                     </div>
@@ -133,7 +141,7 @@ export default class TaskDescription extends React.Component {
                         }
                     </div>
                     <div className="dod">
-                        <strong>Task DoD:</strong>  {this.state.isDone}
+                        <strong>SMART:</strong>  {this.state.isDone}
                     </div>
                     <div className="is-complete">
                         <strong>Is task completed:</strong>  {this.state.dod.toString()}
