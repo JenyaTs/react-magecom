@@ -1,6 +1,5 @@
 function updateTask(rootArr, rootId, taskId, task) {
     let parsedId;
-
     typeof(rootId) === 'string' ?
         parsedId = rootId.split('.') :
         parsedId = `${rootId}`;
@@ -30,9 +29,7 @@ function updateTask(rootArr, rootId, taskId, task) {
                 break;
             }
         }
-        console.log(rootArr);
     }
-
     arrayCategorySplicer(rootArr);
 }
 

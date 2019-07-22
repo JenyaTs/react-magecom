@@ -13,6 +13,10 @@ function TaskList(props) {
                 el={el}
                 todos={props.todos}
                 updateTodos={props.updateTodos}
+                categories={props.categories}
+                updateCats={props.updateCats}
+                dateState={props.dateState}
+                setDateState={props.setDateState}
             />;
         });
     }

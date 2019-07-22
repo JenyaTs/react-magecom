@@ -5,6 +5,7 @@ import TaskDescription from "./TaskDescription";
 
 function Main(props) {
     const [state, setState] = useState(false);
+    const [dateState, setDateState] = useState(true);
     const {todos, updateTodos, categories, updateCats, toDoState} = props;
 
     return (
@@ -19,6 +20,8 @@ function Main(props) {
                     parentState={state}
                     setParentState={setState}
                     toDoState={toDoState}
+                    dateState={dateState}
+                    setDateState={setDateState}
                 />}
             />
             <Route path={`/categories/${props.todos.id}/task`} render={(props) =>
@@ -31,6 +34,8 @@ function Main(props) {
                     parentState={state}
                     setParentState={setState}
                     toDoState={toDoState}
+                    dateState={dateState}
+                    setDateState={setDateState}
                 />}/>
         </div>
 

@@ -20,6 +20,10 @@ function MainContent(props) {
                     todos={props.todos}
                     updateTodos={props.updateTodos}
                     match={props.match}
+                    categories={props.categories}
+                    updateCats={props.updateCats}
+                    dateState={props.dateState}
+                    setDateState={props.setDateState}
                 />
             </React.Fragment>
         )

@@ -16,7 +16,7 @@ function newTaskAdder(arr, id, task) {
             if (`${arr[i].id}` === idElem && parsedId.length - 1 === count) {
                 let date = new Date();
                 let endDate = new Date();
-                endDate.setDate(date.getDate() + 10);
+                endDate.setDate(date.getDate() + 3);
 
                 const taskObject = {};
                 taskObject.id = `${idElem}/${arr[i].tasks.length + 1}`;
