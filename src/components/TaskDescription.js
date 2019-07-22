@@ -84,31 +84,30 @@ export default class TaskDescription extends React.Component {
                         </div>
                     </div>
 
-                    <Link to={`${this.props.match.url.slice(0, -5)}`}>
-                        <Button onClick={() => {
-                            let newData = Object.assign({}, this.data, this.state);
-                            delete newData.state;
-                            updateTask(this.props.categories, this.props.todos.id, this.data.id, newData);
-                        }}>
-                            Save
-                        </Button>
-                    </Link>
+                    <Button onClick={() => {
+                        let newData = Object.assign({}, this.data, this.state);
+                        delete newData.state;
+                        updateTask(this.props.categories, this.props.todos.id, this.data.id, newData);
+                        this.setState(() => ({
+                            state: false
+                        }));
+                    }}>
+                        Save
+                    </Button>
 
-                    <Link to={`${this.props.match.url.slice(0, -5)}`}>
-                        <Button variant="secondary" onClick={() => {
-                            this.setState(() => ({
-                                state: false,
-                                title: this.data.title,
-                                description: this.data.description,
-                                startDate: this.data.startDate,
-                                endDate: this.data.endDate,
-                                isDone: this.data.isDone,
-                                dod: this.data.dod
-                            }));
-                        }}>
-                            Cancel
-                        </Button>
-                    </Link>
+                    <Button variant="secondary" onClick={() => {
+                        this.setState(() => ({
+                            state: false,
+                            title: this.data.title,
+                            description: this.data.description,
+                            startDate: this.data.startDate,
+                            endDate: this.data.endDate,
+                            isDone: this.data.isDone,
+                            dod: this.data.dod
+                        }));
+                    }}>
+                        Cancel
+                    </Button>
                 </React.Fragment>
             )
         }
@@ -145,7 +144,6 @@ export default class TaskDescription extends React.Component {
                         ...state,
                         state: true
                     }));
-                    console.log(this.state);
                 }}>
                     Edit
                 </Button>
