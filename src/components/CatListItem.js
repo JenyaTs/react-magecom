@@ -6,7 +6,7 @@ function CatListItem(props) {
     const obj = {
         id: `${id}`,
         todos: tasks
-    }
+    };
 
     return (
         <span onClick={() => {

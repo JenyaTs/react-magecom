@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function TaskListItem(props) {
-    const [modalState, setModalState] = useState(false);
     return (
         <Link to={`${props.match.url}/task/${props.num + 1}`}>
             <li onClick={() => {
-                setModalState(!modalState);
+                const todos = props.todos;
+                todos.item = props.num;
+                props.updateTodos(todos);
             }}>
-                {props.el}
+                {props.el.title}
             </li>
         </Link>
     )

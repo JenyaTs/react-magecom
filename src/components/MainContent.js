@@ -18,6 +18,7 @@ function MainContent(props) {
                 />
                 <TaskList
                     todos={props.todos}
+                    updateTodos={props.updateTodos}
                     match={props.match}
                 />
             </React.Fragment>
