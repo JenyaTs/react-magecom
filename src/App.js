@@ -8,7 +8,8 @@ import { Route } from 'react-router-dom';
 
 import './styles/styles.css'
 
-function App() {
+function App(props) {
+    console.log(props);
     const [toDoList, setToDolist] = useState({});
     const [toDoState, setToDoState] = useState(false);
     const [catList, setCatList] = useState([]);
