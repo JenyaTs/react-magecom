@@ -1,7 +1,7 @@
 import React from "react";
 import CategoryAdder from './CategoryAdder';
 import CategoryListWrapper from "./CategoryListWrapper";
-
+import { addCategory } from "../actions/actions";
 function Sidebar(props) {
     return (
         <aside className="sidebar">

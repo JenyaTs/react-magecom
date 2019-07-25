@@ -1,5 +1,4 @@
 import { createAction } from './helpers';
-import { CHANGE_NAME, CHANGE_EMAIL } from './constants';
+import { ADD_TODO } from './constants';
 
-export const changeName = createAction(CHANGE_NAME);
-export const changeEmail = createAction(CHANGE_EMAIL);
+export const addCategory = createAction(ADD_TODO);

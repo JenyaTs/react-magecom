@@ -1,20 +1,22 @@
 import * as constants  from '../actions/constants';
 
-const initialState = {
-    name: 'Vasya',
-    email: null
-};
+const initialState = [];
 
 export const reducer = (state = initialState, action) => {
     const { type, payload } = action;
 
     switch (type) {
-        case constants.CHANGE_NAME:
-            return { ...state, name: payload };
-
-        case constants.CHANGE_EMAIL:
-
-            return { ...state, email: payload };
+        case constants.ADD_TODO:
+            return [
+                ...state, 
+                {
+                    id: payload.id,
+                    name: payload.name,
+                    tasks: [],
+                    subCategories: []
+                }
+                
+            ];
 
         default:
             return state;
