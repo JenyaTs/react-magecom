@@ -5,13 +5,10 @@ import OpenSidebar from "./components/OpenSidebar";
 import Sidebar from "./components/Sidebar";
 import Main from './components/Main';
 import { Route } from 'react-router-dom';
-import { sidebarConnector } from './connector/connector';
 
 import './styles/styles.css'
 
-const ConnectedSidebar = sidebarConnector(Sidebar);
-
-function App(props) {
+function App() {
     const [toDoList, setToDolist] = useState({});
     const [toDoState, setToDoState] = useState(false);
     const [catList, setCatList] = useState([]);
@@ -44,7 +41,7 @@ function App(props) {
                 <Route
                     path='/categories'
                     render={(props) =>
-                        <ConnectedSidebar
+                        <Sidebar
                             {...props}
                             className="sidebar"
                             todos={toDoList}

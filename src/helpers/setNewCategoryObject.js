@@ -3,7 +3,7 @@ function setNewCategoryObject(id, value) {
         id: id,
         name: `${id}. ${value}`,
         tasks: [],
-        subCategory: []
+        subCategories: []
     }
 }
 

@@ -2,14 +2,16 @@ import React from "react";
 import SubCategory from "./SubCategory";
 import CatListItem from "./CatListItem";
 import { Link } from 'react-router-dom';
+import { sidebarConnector } from '../connector/connector';
+
+const ConnectedSubcategory = sidebarConnector(SubCategory);
 
 function ParseCategories(categories, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState, match) {
     const categoriesArr = categories.map((element) => {
-
         let subMenu;
 
-        if (element.subCategory.length  > 0) {
-            subMenu = ParseCategories(element.subCategory, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState, match)
+        if (element.subCategories && element.subCategories.length  > 0) {
+            subMenu = ParseCategories(element.subCategories, updateCategories, state, setParentState, list, todos, updateTodos, setToDoState, match)
         }
 
         return (
@@ -24,7 +26,7 @@ function ParseCategories(categories, updateCategories, state, setParentState, li
                         setToDoState={setToDoState}
                     />
                 </Link>
-                <SubCategory
+                <ConnectedSubcategory
                     id={element.id}
                     element={element}
                     state={state}
@@ -33,7 +35,7 @@ function ParseCategories(categories, updateCategories, state, setParentState, li
                     updateCats={updateCategories}
                 >
                     +
-                </SubCategory>
+                </ConnectedSubcategory>
                 { subMenu }
             </li>
         );

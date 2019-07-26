@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { useDispatch } from 'react-redux';
+import { addCategory, addSubCat } from "../actions/actions";
 import setNewCategoryObject from "../helpers/setNewCategoryObject";
 import addSubCategory from "../helpers/addSubCategory";
 import removeCategory from '../helpers/removeCategory';
@@ -7,10 +9,12 @@ import Button from 'react-bootstrap/Button';
 
 import '../styles/styles.css'
 
+let id = 1;
 function SubCategory(props) {
     const [state, setState] = useState(false);
     const [modalState, setModalState] = useState(false);
     const [value, setValue] = useState('');
+    const dispatch = useDispatch();
 
     if(state) {
         return (
@@ -23,28 +27,20 @@ function SubCategory(props) {
                 />
                 <button onClick={() => {
                     if(value !== '') {
-                        let catList = props.categories.slice();
-                        
                         if (!props.id) {
-                            let id = catList.length + 1;
-                            let newCat = setNewCategoryObject(id, value);
-                        
-                            catList.push(newCat);
-                            
-                            props.updateCats(catList);
+                            dispatch(addCategory(setNewCategoryObject(`${id}`, value)));
+
                             setState(false);
-                            props.setParentState(!props.state);
+                            id++;
                         }
 
                         if (props.id) {
-                            let id = `${props.element.id}.${props.element.subCategory.length + 1}`;
-                            let newCat = setNewCategoryObject(id, value);
+                            dispatch(addSubCat({
+                                data : setNewCategoryObject(`${props.element.id}.${props.element.subCategories.length + 1}`, value),
+                                props: props
+                            }));
 
-                            addSubCategory(catList, newCat, props);
-
-                            props.updateCats(catList);
                             setState(false);
-                            props.setParentState(!props.state);
                         }
                     }
                 }}>Add category</button>

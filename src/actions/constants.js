@@ -1,1 +1,2 @@
-export const ADD_TODO = 'ADD_TODO';
+export const ADD_CATEGORY = 'ADD_CATEGORY';
+export const ADD_SUB_CATEGORY = 'ADD_SUB_CATEGORY';

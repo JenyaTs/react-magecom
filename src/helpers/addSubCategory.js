@@ -1,16 +1,17 @@
 function addSubCategory(array, newSub, props) {
     array.forEach((element) => {
 
-        if (element.subCategory.length  > 0) {
-            addSubCategory(element.subCategory, newSub, props)
+        if (element.subCategories.length  > 0) {
+            addSubCategory(element.subCategories, newSub, props)
         }
         
         if (element.id === props.id) {
-            element.subCategory.push(newSub);
+            element.subCategories.push(newSub);
         }
 
-        
     });
+
+    return array;
 }
 
 export default addSubCategory;

@@ -1,7 +1,10 @@
 import React from "react";
 import CategoryAdder from './CategoryAdder';
 import CategoryListWrapper from "./CategoryListWrapper";
-import { addCategory } from "../actions/actions";
+import { sidebarConnector } from '../connector/connector';
+
+const ConnectedCategoriesList = sidebarConnector(CategoryListWrapper);
+
 function Sidebar(props) {
     return (
         <aside className="sidebar">
@@ -12,7 +15,7 @@ function Sidebar(props) {
                 categories={props.categories}
                 updateCats={props.updateCats}
                 setToDoState={props.setToDoState}
-                component={CategoryListWrapper}
+                component={ConnectedCategoriesList}
                 match={props.match}
             />
         </aside>
