@@ -15,8 +15,6 @@ function Main(props) {
                     {...props}
                     todos={todos}
                     updateTodos={updateTodos}
-                    categories={categories}
-                    updateCats={updateCats}
                     parentState={state}
                     setParentState={setState}
                     toDoState={toDoState}

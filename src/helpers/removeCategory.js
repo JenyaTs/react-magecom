@@ -1,5 +1,6 @@
 function removeCategory(rootArr, id) {
     let parsedId;
+    let newArray;
 
     typeof(id) === 'string' ?
         parsedId = id.split('.') :
@@ -15,19 +16,21 @@ function removeCategory(rootArr, id) {
             if (`${arr[i].id}` === idElem && parsedId.length - 1 > count) {
                 idElem = `${idElem}.${parsedId[count + 1]}`;
                 count++;
-                parent = arr[i].subCategory;
-                arrayCategorySplicer(arr[i].subCategory);
+                parent = arr[i].subCategories;
+                arrayCategorySplicer(arr[i].subCategories);
             }
 
 
             if (`${arr[i].id}` === idElem && parsedId.length - 1 === count) {
                 parent.splice(i, 1);
-                break;
+                newArray = [...rootArr];
             }
         }
     }
 
     arrayCategorySplicer(rootArr);
+
+    return newArray;
 }
 
 export default removeCategory;

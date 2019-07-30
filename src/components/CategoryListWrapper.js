@@ -3,6 +3,7 @@ import CategoryList from "./CategoryList";
 
 import '../styles/styles.css'
 function CategoryListWrapper(props) {
+    console.log(props);
     return (
         <div className="pointer">
             {

@@ -1,7 +1,8 @@
 import React from 'react';
 
 function CatListItem(props) {
-    const {id, name, tasks, subCategory} = props.element; 
+    const {id, name, tasks, subCategory} = props.element;
+    console.log(props.element);
 
     const obj = {
         id: `${id}`,

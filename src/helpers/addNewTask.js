@@ -34,6 +34,8 @@ function newTaskAdder(arr, id, task) {
     }
 
     taskAdderPusher(arr, task);
+
+    return arr;
 }
 
 export default newTaskAdder;

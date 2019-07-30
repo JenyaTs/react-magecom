@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import TaskAdder from "./TaskAdder";
 import TaskList from "./TaskList";
+import { sidebarConnector } from '../connector/connector';
+
+const ConnectedTaskAdder = sidebarConnector(TaskAdder);
 
 function MainContent(props) {
     const [state, setState] = useState(false);
@@ -8,10 +11,10 @@ function MainContent(props) {
     if (props.toDoState) {
         return (
             <React.Fragment>
-                <TaskAdder
+                <ConnectedTaskAdder
                     todos={props.todos}
                     updateTodos={props.updateTodos}
-                    categories={props.categories}
+                    categories={props.categoriesArray}
                     updateCats={props.updateCats}
                     parentState={state}
                     setParentState={setState}

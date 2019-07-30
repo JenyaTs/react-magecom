@@ -12,8 +12,6 @@ function Sidebar(props) {
             <CategoryAdder
                 todos={props.todos}
                 updateTodos={props.updateTodos}
-                categories={props.categories}
-                updateCats={props.updateCats}
                 setToDoState={props.setToDoState}
                 component={ConnectedCategoriesList}
                 match={props.match}

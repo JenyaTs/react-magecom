@@ -11,7 +11,6 @@ import './styles/styles.css'
 function App() {
     const [toDoList, setToDolist] = useState({});
     const [toDoState, setToDoState] = useState(false);
-    const [catList, setCatList] = useState([]);
     
     return (
         <div className="wrapper">
@@ -19,9 +18,7 @@ function App() {
                 <span>New category</span>
                 <CategoryAdder
                     todos={toDoList} 
-                    updateTodos={setToDolist} 
-                    categories={catList} 
-                    updateCats={setCatList} 
+                    updateTodos={setToDolist}
                     component={SubCategory}
                 />
                 <OpenSidebar />
@@ -33,8 +30,6 @@ function App() {
                     <Main
                         todos={toDoList}
                         updateTodos={setToDolist}
-                        categories={catList}
-                        updateCats={setCatList}
                         toDoState={toDoState}
                     />
                 </main>
@@ -46,8 +41,6 @@ function App() {
                             className="sidebar"
                             todos={toDoList}
                             updateTodos={setToDolist}
-                            categories={catList}
-                            updateCats={setCatList}
                             setToDoState={setToDoState}
                         />}
                 />

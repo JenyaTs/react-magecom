@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { addCategory, addSubCat } from "../actions/actions";
+import { addCategory, addSubCat, removeCategory } from "../actions/actions";
 import setNewCategoryObject from "../helpers/setNewCategoryObject";
-import addSubCategory from "../helpers/addSubCategory";
-import removeCategory from '../helpers/removeCategory';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
@@ -63,10 +61,8 @@ function SubCategory(props) {
                 </Modal.Header>
                 <Modal.Footer>
                     <Button variant="secondary"  onClick={() => {
-                        let catList = props.categories.slice();
-                        removeCategory(catList, props.id);
-                        props.updateCats(catList);
-                        props.setParentState(!props.state);
+                        let catList = [...props.categoriesArray];
+                        dispatch(removeCategory({data: catList, id: props.id}));
                     }}>
                         Yes
                     </Button>

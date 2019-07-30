@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import newTaskAdder from '../helpers/addNewTask';
 
 function TaskAdder(props) {
+    console.log(props);
     const [value, setValue] = useState(''); 
     
     const 
-        categories = props.categories.slice(),
+        categories = props.categoriesArray.slice(),
         id = props.todos.id;
     
     return (
