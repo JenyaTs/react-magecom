@@ -55,13 +55,16 @@ export const reducer = (state = initialState, action) => {
                 }
             }
 
-            case constants.ADD_TASK:
-            let taskCategoriesCopy = [
-                ...state
-            ];
+        case constants.ADD_TASK:
 
             return {
-
+                categories: [
+                    ...state.categories
+                ],
+                taskList: {
+                    id: payload.id,
+                    tasks: payload.todos
+                }
             };
 
         default:

@@ -1,17 +1,21 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addTask } from "../actions/actions";
 
 function CatListItem(props) {
+    const dispatch = useDispatch();
     const {id, name, tasks, subCategory} = props.element;
     console.log(props.element);
 
-    const obj = {
+    const payload = {
         id: `${id}`,
         todos: tasks
     };
 
     return (
         <span onClick={() => {
-            props.updateTodos(obj);
+            dispatch(addTask(payload));
+            props.updateTodos(payload);
             props.setParentState(!props.state);
             props.setToDoState(true)
         }}>

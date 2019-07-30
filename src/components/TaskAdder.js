@@ -20,11 +20,11 @@ function TaskAdder(props) {
                     }}
                 />
                 <button onClick={() => {
-                    if (value) {
-                        newTaskAdder(categories, id, value);
-                        props.setParentState(!props.parentState);
-                        setValue('');
-                    }
+                    // if (value) {
+                    //     newTaskAdder(categories, id, value);
+                    //     props.setParentState(!props.parentState);
+                    //     setValue('');
+                    // }
                 }}>
                     Add
                 </button>
