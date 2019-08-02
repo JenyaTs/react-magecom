@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import TaskAdder from "./TaskAdder";
 import TaskList from "./TaskList";
-import { sidebarConnector } from '../connector/connector';
+import { taskListConnector } from '../connector/connector';
 
-const ConnectedTaskAdder = sidebarConnector(TaskAdder);
+const ConnectedTaskAdder = taskListConnector(TaskAdder);
+const ConnectedTaskList = taskListConnector(TaskList);
 
 function MainContent(props) {
     const [state, setState] = useState(false);
@@ -19,7 +20,7 @@ function MainContent(props) {
                     parentState={state}
                     setParentState={setState}
                 />
-                <TaskList
+                <ConnectedTaskList
                     todos={props.todos}
                     updateTodos={props.updateTodos}
                     match={props.match}

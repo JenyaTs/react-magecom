@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
 import newTaskAdder from '../helpers/addNewTask';
+import { addTask } from "../actions/actions";
+import { useDispatch } from 'react-redux';
 
 function TaskAdder(props) {
     console.log(props);
+    
     const [value, setValue] = useState(''); 
+    const dispatch = useDispatch();
     
     const 
         categories = props.categoriesArray.slice(),
-        id = props.todos.id;
+        id = props.taskList.id;
     
     return (
         <React.Fragment>
@@ -20,11 +24,10 @@ function TaskAdder(props) {
                     }}
                 />
                 <button onClick={() => {
-                    // if (value) {
-                    //     newTaskAdder(categories, id, value);
-                    //     props.setParentState(!props.parentState);
-                    //     setValue('');
-                    // }
+                    if (value) {
+                        dispatch(addTask({categories, id, value}));
+                        setValue('');
+                    }
                 }}>
                     Add
                 </button>

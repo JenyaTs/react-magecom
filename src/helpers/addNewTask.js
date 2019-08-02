@@ -9,7 +9,7 @@ function newTaskAdder(arr, id, task) {
             if (`${arr[i].id}` === idElem && parsedId.length - 1 > count) {
                 idElem = `${idElem}.${parsedId[count + 1]}`;
                 count++;
-                taskAdderPusher(arr[i].subCategory, task);
+                taskAdderPusher(arr[i].subCategories, task);
             }
 
 
@@ -34,7 +34,6 @@ function newTaskAdder(arr, id, task) {
     }
 
     taskAdderPusher(arr, task);
-
     return arr;
 }
 

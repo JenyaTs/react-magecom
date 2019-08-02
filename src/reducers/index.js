@@ -55,7 +55,7 @@ export const reducer = (state = initialState, action) => {
                 }
             }
 
-        case constants.ADD_TASK:
+        case constants.TASKS_SHOW:
 
             return {
                 categories: [
@@ -66,6 +66,15 @@ export const reducer = (state = initialState, action) => {
                     tasks: payload.todos
                 }
             };
+
+            case constants.TASK_ADD:
+
+                return {
+                    categories: addTask(payload.categories, payload.id, payload.value),
+                    taskList: {
+                        ...state.taskList
+                    }
+                };    
 
         default:
             return state;
