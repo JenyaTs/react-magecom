@@ -21,8 +21,8 @@ function MainContent(props) {
                     setParentState={setState}
                 />
                 <ConnectedTaskList
-                    todos={props.todos}
-                    updateTodos={props.updateTodos}
+                    // todos={props.todos}
+                    // updateTodos={props.updateTodos}
                     match={props.match}
                     categories={props.categories}
                     updateCats={props.updateCats}

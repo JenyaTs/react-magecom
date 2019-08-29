@@ -13,10 +13,20 @@ const mapStateToTask = (state) => {
     };
 }
 
+const mapStateToDescription = (state) => {
+    return {
+        taskList: state.taskList
+    };
+}
+
 export const sidebarConnector = connect(
     mapStateToProps
 );
 
 export const taskListConnector = connect(
     mapStateToTask
+);
+
+export const taskDescriptionConnector = connect(
+    mapStateToDescription
 );

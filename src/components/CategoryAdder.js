@@ -7,9 +7,7 @@ function CategoryAdder(props) {
     return (
         <Comp 
             state={state}
-            categories={props.categories}
-            setParentState={setState}     
-            updateCats={props.updateCats}
+            setParentState={setState}
             todos={props.todos} 
             updateTodos={props.updateTodos}
             setToDoState={props.setToDoState}

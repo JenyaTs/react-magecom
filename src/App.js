@@ -17,7 +17,7 @@ function App() {
             <header className="header title">
                 <span>New category</span>
                 <CategoryAdder
-                    todos={toDoList} 
+                    todos={toDoList}
                     updateTodos={setToDolist}
                     component={SubCategory}
                 />

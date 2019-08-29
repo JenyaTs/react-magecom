@@ -2,12 +2,15 @@ import React from 'react';
 import CategoryList from "./CategoryList";
 
 import '../styles/styles.css'
+
+
+
 function CategoryListWrapper(props) {
     return (
         <div className="pointer">
             {
                 CategoryList(
-                    props.categoriesArray,
+                    props.categoriesArray.categories,
                     props.updateCats, 
                     props.state,
                     props.setParentState, 

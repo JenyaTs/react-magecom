@@ -9,6 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 export default class TaskDescription extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.data = props.todos.todos[props.todos.item];
         this.state = {
             state: false,

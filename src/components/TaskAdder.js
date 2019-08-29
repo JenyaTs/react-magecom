@@ -4,8 +4,6 @@ import { addTask } from "../actions/actions";
 import { useDispatch } from 'react-redux';
 
 function TaskAdder(props) {
-    console.log(props);
-    
     const [value, setValue] = useState(''); 
     const dispatch = useDispatch();
     

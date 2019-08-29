@@ -8,13 +8,14 @@ function Main(props) {
     const [dateState, setDateState] = useState(true);
     const {todos, updateTodos, categories, updateCats, toDoState} = props;
 
+
     return (
         <div>
             <Route exact path={`/categories/${props.todos.id}`} render={(props) =>
                 <MainContent
                     {...props}
-                    todos={todos}
-                    updateTodos={updateTodos}
+                    // todos={todos}
+                    // updateTodos={updateTodos}
                     parentState={state}
                     setParentState={setState}
                     toDoState={toDoState}
@@ -27,8 +28,6 @@ function Main(props) {
                     {...props}
                     todos={todos}
                     updateTodos={updateTodos}
-                    categories={categories}
-                    updateCats={updateCats}
                     parentState={state}
                     setParentState={setState}
                     toDoState={toDoState}

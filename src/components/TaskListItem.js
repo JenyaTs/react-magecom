@@ -9,6 +9,7 @@ import '../styles/styles.css';
 import "react-datepicker/dist/react-datepicker.css";
 
 function TaskListItem(props) {
+    console.log(props);
     const [startDate, setStartDate] = useState(props.el.startDate);
     const [endDate, setEndDate] = useState(props.el.endDate);
     const [state, setState] = useState(true);
@@ -78,7 +79,7 @@ function TaskListItem(props) {
             <li className='green' onClick={() => {
                 const todos = props.todos;
                 todos.item = props.num;
-                props.updateTodos(todos);
+                // props.updateTodos(todos);
             }}>
                 {props.el.title}
             </li>
