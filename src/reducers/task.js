@@ -1,4 +1,5 @@
 import * as constants  from '../actions/constants';
+import getTask  from '../helpers/getTask';
 const initialState = {
     currentTask: {}
 };
@@ -8,9 +9,7 @@ const task = (state = initialState, action) => {
 
     switch (type) {
         case constants.TASKS_DESCRIPTION_SHOW:
-            return {
-                ...state
-            };
+            return getTask(payload);
 
         case constants.TASKS_DESCRIPTION_UPDATE:
             return {

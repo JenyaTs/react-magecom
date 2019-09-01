@@ -15,7 +15,7 @@ const mapStateToTask = (state) => {
 
 const mapStateToDescription = (state) => {
     return {
-        taskList: state.taskList
+        task: state.task
     };
 }
 

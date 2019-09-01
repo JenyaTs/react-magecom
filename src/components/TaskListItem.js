@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import ReactTooltip from 'react-tooltip';
 import DatePicker from "react-datepicker";
 import updateTask from '../helpers/updateNewTask'
+import { showDescription } from "../actions/actions";
 
 import '../styles/styles.css';
 import "react-datepicker/dist/react-datepicker.css";
 
 function TaskListItem(props) {
-    console.log(props);
     const [startDate, setStartDate] = useState(props.el.startDate);
     const [endDate, setEndDate] = useState(props.el.endDate);
     const [state, setState] = useState(true);
+    const dispatch = useDispatch();
      
     if (Date.parse(endDate) < Date.parse(startDate)) {
         return (
@@ -54,7 +56,6 @@ function TaskListItem(props) {
                                     ...props.el,
                                     endDate: date
                                 }
-                                console.log(updatedTask)
                                 updateTask(props.categories, props.id, props.el.id, updatedTask);
                             }
                         }}
@@ -64,8 +65,6 @@ function TaskListItem(props) {
                         if (Date.parse(endDate) > Date.parse(startDate)) {
                             setState(!state);
                         }
-            
-                        // updateTask(this.props.categories, this.props.todos.id, this.data.id, newData);
                     }}>
                         Update
                     </Button>
@@ -79,7 +78,10 @@ function TaskListItem(props) {
             <li className='green' onClick={() => {
                 const todos = props.todos;
                 todos.item = props.num;
-                // props.updateTodos(todos);
+                dispatch(showDescription({
+                    todos: todos, 
+                    id: props.el.id
+                }))
             }}>
                 {props.el.title}
             </li>

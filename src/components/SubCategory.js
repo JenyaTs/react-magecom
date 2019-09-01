@@ -9,6 +9,7 @@ import '../styles/styles.css'
 
 let id = 1;
 function SubCategory(props) {
+
     const [state, setState] = useState(false);
     const [modalState, setModalState] = useState(false);
     const [value, setValue] = useState('');
@@ -61,7 +62,7 @@ function SubCategory(props) {
                 </Modal.Header>
                 <Modal.Footer>
                     <Button variant="secondary"  onClick={() => {
-                        let catList = [...props.categoriesArray];
+                        let catList = [...props.categoriesArray.categories];
                         dispatch(removeCategory({data: catList, id: props.id}));
                     }}>
                         Yes

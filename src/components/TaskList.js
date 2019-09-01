@@ -1,22 +1,20 @@
 import React from 'react';
 import TaskListItem from './TaskListItem';
-import { taskDescriptionConnector } from '../connector/connector';
 
 function TaskList(props) {
+    const tasks = props.categoriesArray.taskList.tasks;
+    const id = props.categoriesArray.taskList.id;
     let list;
-    if (props.taskList) {
+    if (tasks) {
 
-        list = props.taskList.tasks.map((el, i) => {
+        list = tasks.map((el, i) => {
             return <TaskListItem
                 match={props.match}
                 key={i}
                 num={i}
-                id={props.taskList.tasks.id}
+                id={id}
                 el={el}
-                todos={props.taskList.tasks}
-                updateTodos={props.updateTodos}
-                categories={props.categories}
-                updateCats={props.updateCats}
+                todos={tasks}
                 dateState={props.dateState}
                 setDateState={props.setDateState}
             />;

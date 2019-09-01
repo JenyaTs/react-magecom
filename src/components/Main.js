@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import MainContent from "./MainContent";
 import { Route } from 'react-router-dom';
 import TaskDescription from "./TaskDescription";
+import { taskDescriptionConnector } from '../connector/connector';
+
+const ConnectedTaskDescription = taskDescriptionConnector(TaskDescription);
 
 function Main(props) {
     const [state, setState] = useState(false);
@@ -24,9 +27,9 @@ function Main(props) {
                 />}
             />
             <Route path={`/categories/${props.todos.id}/task`} render={(props) =>
-                <TaskDescription
+                <ConnectedTaskDescription
                     {...props}
-                    todos={todos}
+                    // todos={todos}
                     updateTodos={updateTodos}
                     parentState={state}
                     setParentState={setState}

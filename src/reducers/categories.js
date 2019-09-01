@@ -76,18 +76,6 @@ const categories = (state = initialState, action) => {
                 }
             };
 
-        case constants.TASKS_DESCRIPTION_SHOW:
-
-            return {
-                categories: [
-                    ...state.categories
-                ],
-                taskList: {
-                    id: payload.id,
-                    tasks: payload.todos
-                }
-            };
-
         default:
             return state;
     }

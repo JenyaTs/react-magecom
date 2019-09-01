@@ -8,8 +8,8 @@ function TaskAdder(props) {
     const dispatch = useDispatch();
     
     const 
-        categories = props.categoriesArray.slice(),
-        id = props.taskList.id;
+        categories = props.categoriesArray.categories.slice(),
+        id = props.categoriesArray.taskList.id;
     
     return (
         <React.Fragment>
